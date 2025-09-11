@@ -14,7 +14,7 @@
 #'
 #' @param x Logical, vector of successes and failures.
 #' @param target Baseline risk (0-1) or number (>1) of last observation to end
-#'   baseline period.
+#'   baseline period. If NULL, use empirical mean.
 #' @param or Positive odds ratio of minimal detectable change relative to
 #'   baseline risk.
 #' @param limit Control limit.
@@ -43,7 +43,7 @@
 
 bchart <- function(
     x,
-    target,
+    target = NULL,
     or    = 2,
     limit = 3.5,
     title = '',
@@ -51,7 +51,7 @@ bchart <- function(
     xlab  = 'Case #') {
   freeze <- NULL
   
-  if (missing(target)) {
+  if (is.null(target)) {
     p0 <- mean(x)
   } else if(target > 1) {
     freeze <- target

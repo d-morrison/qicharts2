@@ -1,3 +1,7 @@
+qicharts2 0.8.1.9999
+===============
+* Allow missing target in bchart().
+
 qicharts2 0.8.1
 ===============
 * Prepare for ggplot2 version 4 (size -> linewidth, aes_ -> aes).
