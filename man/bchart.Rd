@@ -6,7 +6,7 @@
 \usage{
 bchart(
   x,
-  target,
+  target = NULL,
   or = 2,
   limit = 3.5,
   title = "",
@@ -18,7 +18,7 @@ bchart(
 \item{x}{Logical, vector of successes and failures.}
 
 \item{target}{Baseline risk (0-1) or number (>1) of last observation to end
-baseline period.}
+baseline period. If NULL, use empirical mean.}
 
 \item{or}{Positive odds ratio of minimal detectable change relative to
 baseline risk.}
