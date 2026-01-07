@@ -550,8 +550,15 @@ fixnotes <- function(x) {
 
 # Function for data aggregation and analysis
 qic.agg <- function(d, got.n, part, agg.fun, freeze, exclude, 
-                    chart.fun, multiply, dots.only, chart, method, y.neg) {
+                    chart.fun, multiply, dots.only, chart, method, y.neg, show.raw = FALSE) {
   d <- d[!is.na(d$x), ]
+  
+  # Store raw data before aggregation if show.raw is TRUE and chart is xbar or s
+  raw.data <- NULL
+  if (show.raw && chart %in% c('xbar', 's')) {
+    raw.data <- d[, c('x', 'y', 'facet1', 'facet2')]
+  }
+  
   d <- split(d, d[,c('x', 'facet1', 'facet2')])
   d <- lapply(d, function(x) {
     data.frame(x        = x$x[1],
@@ -625,6 +632,12 @@ qic.agg <- function(d, got.n, part, agg.fun, freeze, exclude,
     d$lcl[d$lcl < 0]         <- 0
     d$lcl.95[d$lcl.95 < 0]   <- 0
     d$lcl.lab[d$lcl.lab < 0] <- 0
+  }
+  
+  # Add raw data if requested
+  if (!is.null(raw.data)) {
+    raw.data$y <- raw.data$y * multiply
+    attr(d, 'raw.data') <- raw.data
   }
   
   return(d)

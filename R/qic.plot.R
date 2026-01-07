@@ -5,6 +5,7 @@ plot.qic <- function(x, title, ylab, xlab, subtitle, caption, part.labels,
                      decimals, flip, dots.only, point.size,
                      x.format, x.angle, x.pad,
                      y.expand, y.percent, y.percent.accuracy, strip.horizontal,
+                     show.raw = FALSE,
                      # col.line = '#5DA5DA', 
                      # col.signal = '#F15854', 
                      # col.target = '#059748',
@@ -94,6 +95,18 @@ plot.qic <- function(x, title, ylab, xlab, subtitle, caption, part.labels,
       geom_point(aes(colour = { dotcol }), size = point.size, na.rm = TRUE)
   }
   p <- p + scale_colour_manual(values = cols)
+  
+  # Add raw data points if available
+  if (show.raw && !is.null(attr(x, 'raw.data'))) {
+    raw.data <- attr(x, 'raw.data')
+    p <- p + geom_point(data = raw.data, 
+                        aes(x = { x }, y = { y }),
+                        colour = col1, 
+                        size = point.size * 0.5,
+                        alpha = 0.5,
+                        inherit.aes = FALSE,
+                        na.rm = TRUE)
+  }
   
   # Add line labels
   if (show.labels) {
