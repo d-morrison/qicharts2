@@ -113,6 +113,18 @@
 #'     ylab     = 'Number of infections per 10.000 risk days',
 #'     xlab     = 'Month')
 #'
+#' # Xbar chart with raw data points displayed
+#' # Create sample data with multiple observations per subgroup
+#' d <- data.frame(
+#'   subgroup = rep(1:10, each = 5),
+#'   value = rnorm(50, mean = 10, sd = 2)
+#' )
+#' qic(subgroup, value,
+#'     data     = d,
+#'     chart    = 'xbar',
+#'     show.raw = TRUE,
+#'     title    = 'Xbar chart with individual observations')
+#'
 #' @importFrom stats median coef lm
 #' @export
 
