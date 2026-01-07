@@ -99,11 +99,16 @@ plot.qic <- function(x, title, ylab, xlab, subtitle, caption, part.labels,
   # Add raw data points if available
   if (show.raw && !is.null(attr(x, 'raw.data'))) {
     raw.data <- attr(x, 'raw.data')
+    # Raw data points are displayed with 50% transparency and half the size
+    # of the aggregated points to distinguish them visually
+    raw_point_alpha <- 0.5
+    raw_point_size_factor <- 0.5
+    
     p <- p + geom_point(data = raw.data, 
                         aes(x = { x }, y = { y }),
                         colour = col1, 
-                        size = point.size * 0.5,
-                        alpha = 0.5,
+                        size = point.size * raw_point_size_factor,
+                        alpha = raw_point_alpha,
                         inherit.aes = FALSE,
                         na.rm = TRUE)
   }
