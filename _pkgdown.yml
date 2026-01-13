@@ -1,3 +1,5 @@
+url: https://d-morrison.github.io/qicharts2/
+
 reference:
   - title: "Quality Improvement Charts"
     contents: 
@@ -9,9 +11,14 @@ reference:
     contents:
         - cabg
         - cdi
+        - complaints
         - gtt
         - hospital_infections
+        - lots
         - nhs_accidents
+  - title: "Package Documentation"
+    contents:
+        - qicharts2
 navbar:
   title: qicharts2
   type: default
