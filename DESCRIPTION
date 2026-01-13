@@ -29,4 +29,4 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
-URL: https://github.com/anhoej/qicharts2
+URL: https://d-morrison.github.io/qicharts2/, https://github.com/d-morrison/qicharts2
