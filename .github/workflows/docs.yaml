@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - master
     tags:
       - "v*"
     paths:
@@ -27,6 +28,7 @@ on:
       - closed
     branches:
       - main
+      - master
     paths:
       - "inst/templates/**"
       - "pkgdown/**"
