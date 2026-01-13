@@ -24,7 +24,7 @@ navbar:
     href: reference/index.html
   right:
   - icon: fa-github fa-lg
-    href: https://github.com/anhoej/qicharts2
+    href: https://github.com/d-morrison/qicharts2
 template:
   bootstrap: 5
   params:
