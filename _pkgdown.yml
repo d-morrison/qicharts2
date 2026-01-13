@@ -1,17 +1,21 @@
 reference:
-  - title: "Quality Improvement Charts"
-    contents: 
-      - qic
-      - paretochart
-      - summary.qic
-      - bchart
-  - title: "Datasets"
-    contents:
-        - cabg
-        - cdi
-        - gtt
-        - hospital_infections
-        - nhs_accidents
+- title: Quality Improvement Charts
+  contents:
+  - qic
+  - paretochart
+  - summary.qic
+  - bchart
+- title: Datasets
+  contents:
+  - cabg
+  - cdi
+  - complaints
+  - gtt
+  - hospital_infections
+  - lots
+  - nhs_accidents
+- title: Package Documentation
+  contents: qicharts2
 navbar:
   title: qicharts2
   type: default
@@ -26,5 +30,7 @@ navbar:
   - icon: fa-github fa-lg
     href: https://github.com/anhoej/qicharts2
 template:
+  bootstrap: 5
   params:
     ganalytics: UA-104156888-1
+
