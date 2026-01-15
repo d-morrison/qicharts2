@@ -78,6 +78,8 @@
 #' @param show.grid If TRUE, shows grid.
 #' @param flip If TRUE, rotates the plot 90 degrees.
 #' @param strip.horizontal If TRUE, makes y strip horizontal.
+#' @param show.raw If TRUE, shows individual data points in addition to the
+#'   aggregated values. Only applicable to Xbar and S charts. Defaults to FALSE.
 #' @param print.summary If TRUE, prints summary.
 #' @param return.data If TRUE, returns underlying data frame.
 # @param ... Additional arguments to plot function.
@@ -110,6 +112,18 @@
 #'     title    = 'Hospital infection rates',
 #'     ylab     = 'Number of infections per 10.000 risk days',
 #'     xlab     = 'Month')
+#'
+#' # Xbar chart with raw data points displayed
+#' # Create sample data with multiple observations per subgroup
+#' d <- data.frame(
+#'   subgroup = rep(1:10, each = 5),
+#'   value = rnorm(50, mean = 10, sd = 2)
+#' )
+#' qic(subgroup, value,
+#'     data     = d,
+#'     chart    = 'xbar',
+#'     show.raw = TRUE,
+#'     title    = 'Xbar chart with individual observations')
 #'
 #' @importFrom stats median coef lm
 #' @export
@@ -154,6 +168,7 @@ qic <- function(x,
                 show.grid          = FALSE,
                 flip               = FALSE,
                 strip.horizontal   = FALSE,
+                show.raw           = FALSE,
                 print.summary      = FALSE,
                 return.data        = FALSE) {
   
@@ -271,7 +286,7 @@ qic <- function(x,
   
   # Aggregate data and perform analyses
   d <- qic.agg(d, got.n, part, agg.fun, freeze, exclude, 
-               chart.fun, multiply, dots.only, chart, method, y.neg)
+               chart.fun, multiply, dots.only, chart, method, y.neg, show.raw)
 
   # Return data to user if requested
   if (return.data) {
@@ -312,7 +327,8 @@ qic <- function(x,
                 y.expand           = y.expand,
                 y.percent          = y.percent,
                 y.percent.accuracy = y.percent.accuracy,
-                strip.horizontal   = strip.horizontal)
+                strip.horizontal   = strip.horizontal,
+                show.raw           = show.raw)
   
   class(p) <- c('qic', class(p))
   
