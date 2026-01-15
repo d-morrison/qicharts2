@@ -47,6 +47,7 @@ qic(
   show.grid = FALSE,
   flip = FALSE,
   strip.horizontal = FALSE,
+  show.raw = FALSE,
   print.summary = FALSE,
   return.data = FALSE
 )
@@ -231,6 +232,11 @@ qic(
 
   If TRUE, makes y strip horizontal.
 
+- show.raw:
+
+  If TRUE, shows individual data points in addition to the aggregated
+  values. Only applicable to Xbar and S charts. Defaults to FALSE.
+
 - print.summary:
 
   If TRUE, prints summary.
@@ -291,5 +297,18 @@ qic(month, n,
     title    = 'Hospital infection rates',
     ylab     = 'Number of infections per 10.000 risk days',
     xlab     = 'Month')
+
+
+# Xbar chart with raw data points displayed
+# Create sample data with multiple observations per subgroup
+d <- data.frame(
+  subgroup = rep(1:10, each = 5),
+  value = rnorm(50, mean = 10, sd = 2)
+)
+qic(subgroup, value,
+    data     = d,
+    chart    = 'xbar',
+    show.raw = TRUE,
+    title    = 'Xbar chart with individual observations')
 
 ```

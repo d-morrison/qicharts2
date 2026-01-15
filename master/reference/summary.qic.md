@@ -57,9 +57,9 @@ p
 
 summary(p)
 #>   facet1 facet2 part n.obs n.useful longest.run longest.run.max n.crossings
-#> 1      1      1    1    24       24          10               8           8
-#>   n.crossings.min runs.signal    aLCL   aLCL.95         CL  aUCL.95     aUCL
-#> 1               8           1 -2.8127 -1.926434 -0.1539033 1.618628 2.504893
+#> 1      1      1    1    24       24           4               8          10
+#>   n.crossings.min runs.signal      aLCL   aLCL.95         CL  aUCL.95     aUCL
+#> 1               8           0 -3.860042 -2.629206 -0.1675323 2.294141 3.524978
 #>   sigma.signal
 #> 1            0
 ```
