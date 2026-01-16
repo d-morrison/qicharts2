@@ -581,8 +581,6 @@ qic(month, n,
     title       = 'Hospital acquired Clostridium difficile infections',
     ylab        = 'Count',
     xlab        = 'Month')
-#> Warning in scale_x_datetime(): A <numeric> value was passed to a Datetime scale.
-#> ℹ The value was converted to a <POSIXct> object.
 ```
 
 ![](qicharts2_files/figure-html/unnamed-chunk-24-1.png)
