@@ -107,7 +107,7 @@ bchart <- function(
                   p2,
                   or)
   class(d) <- c('bchart', class(d))
-  p <- plot.bchart(d, freeze, title = title, ylab = ylab, xlab = xlab)
+  p <- plot_bchart(d, freeze, title = title, ylab = ylab, xlab = xlab)
   return(p)
 }
 
@@ -120,7 +120,7 @@ getp <- function(p0, or) {
 }
 
 # Function to plot bchart object ----
-plot.bchart <- function(data, title, ylab, xlab, freeze) {
+plot_bchart <- function(data, title, ylab, xlab, freeze) {
   target <- signif(data$p0[1], 2)
   or     <- signif(data$or[1], 2)
   limit  <- data$limit1[1]
