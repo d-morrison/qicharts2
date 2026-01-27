@@ -1,4 +1,5 @@
 #' @import ggplot2
+#' @importFrom ggrepel geom_label_repel
 plot.qic <- function(x, title, ylab, xlab, subtitle, caption, part.labels,
                      n.facets,
                      nrow, ncol, scales, show.labels, show.grid, show.95,
@@ -189,14 +190,17 @@ plot.qic <- function(x, title, ylab, xlab, subtitle, caption, part.labels,
                    data = x.notes,
                    linetype = 3,
                    colour = col1) +
-      geom_label(aes(y = Inf, label = { notes }),
+      geom_label_repel(aes(y = Inf, label = { notes }),
                  data = x.notes,
-                 linewidth = NA,
+                 label.size = NA,
                  label.padding = unit(0.3, 'lines'),
                  size = lab.size,
                  alpha = 0.5,
-                 vjust = ifelse(flip, 'center', 'inward'),
-                 hjust = ifelse(flip, 'inward', 'center'))
+                 direction = 'y',
+                 min.segment.length = 0,
+                 box.padding = 0.5,
+                 ylim = c(NA, Inf),
+                 max.overlaps = Inf)
   }
   
   # Facets
