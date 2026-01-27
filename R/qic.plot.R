@@ -199,7 +199,6 @@ plot.qic <- function(x, title, ylab, xlab, subtitle, caption, part.labels,
                  direction = 'y',
                  min.segment.length = 0,
                  box.padding = 0.5,
-                 ylim = c(NA, Inf),
                  max.overlaps = Inf)
   }
   
